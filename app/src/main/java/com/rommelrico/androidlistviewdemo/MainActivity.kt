@@ -19,11 +19,7 @@ class MainActivity : AppCompatActivity() {
         var arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, myFriends)
         friendsListView.adapter = arrayAdapter
 
-        friendsListView.setOnItemClickListener(object: AdapterView.OnItemClickListener {
-            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                Toast.makeText(applicationContext, "Hello ${myFriends.get(position)}", Toast.LENGTH_LONG).show();
-            }
-        })
+        friendsListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id -> Toast.makeText(applicationContext, "Hello ${myFriends.get(position)}", Toast.LENGTH_LONG).show() }
 
     } // end onCreate.
 }
